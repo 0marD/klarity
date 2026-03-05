@@ -6,6 +6,7 @@ type SectionHeaderProps = {
   subtitle?: string
   align?: 'left' | 'center'
   label?: string
+  eyebrow?: string
   className?: string
 }
 
@@ -15,6 +16,7 @@ export function SectionHeader({
   subtitle,
   align = 'left',
   label,
+  eyebrow,
   className,
 }: SectionHeaderProps) {
   return (
@@ -25,6 +27,16 @@ export function SectionHeader({
         className
       )}
     >
+      {eyebrow && (
+        <p
+          className={cn(
+            'font-display italic text-xl text-[var(--gold-text)] mb-2',
+            align === 'center' && 'mx-auto'
+          )}
+        >
+          {eyebrow}
+        </p>
+      )}
       {label && (
         <p
           className={cn(

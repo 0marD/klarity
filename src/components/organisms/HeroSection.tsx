@@ -35,6 +35,14 @@ export function HeroSection() {
           <Badge variant="gold">{t('badge')}</Badge>
         </motion.div>
 
+        {/* Eyebrow */}
+        <motion.p
+          variants={fadeUpVariants}
+          className="font-display italic text-xl text-[var(--gold-text)] mb-2"
+        >
+          Klarity.
+        </motion.p>
+
         {/* Tagline */}
         <motion.h1
           id="hero-heading"

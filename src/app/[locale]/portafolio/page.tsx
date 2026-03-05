@@ -31,6 +31,7 @@ export default function PortfolioPage() {
                 title={t('title')}
                 subtitle={t('subtitle')}
                 align="center"
+                eyebrow="Klarity."
               />
             </motion.div>
 

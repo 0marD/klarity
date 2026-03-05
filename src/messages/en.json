@@ -1,0 +1,241 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "quote": "Get a Quote",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "home": {
+    "hero": {
+      "tagline": "We don't sell code. We solve businesses.",
+      "subtitle": "We build custom software that transforms processes, eliminates inefficiencies, and generates measurable results for your company.",
+      "cta": "Request a quote",
+      "ctaSecondary": "View portfolio",
+      "badge": "Custom Software Development"
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "subtitle": "Solutions that have generated real impact for businesses like yours",
+      "cta": "View all projects"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "From idea to product — we cover the full development cycle",
+      "cta": "View all services"
+    },
+    "value": {
+      "title": "Why Klarity",
+      "subtitle": "We're not just another agency. We're your results-driven technology partner.",
+      "items": {
+        "results": {
+          "title": "Results-Driven",
+          "description": "Every technical decision is aligned with your business goals."
+        },
+        "quality": {
+          "title": "Quality Code",
+          "description": "Clean, documented, and maintainable architecture. No accumulated technical debt."
+        },
+        "speed": {
+          "title": "Fast Delivery",
+          "description": "Agile methodology with 2-week sprints and frequent demos."
+        },
+        "support": {
+          "title": "Ongoing Support",
+          "description": "We don't disappear after deployment. Continuous support and product evolution."
+        }
+      }
+    },
+    "process": {
+      "title": "How We Work",
+      "subtitle": "A clear and transparent process from start to finish",
+      "steps": {
+        "discovery": {
+          "title": "Discovery",
+          "description": "We understand your business, processes, and goals. We define the scope and project KPIs."
+        },
+        "design": {
+          "title": "Design",
+          "description": "Solution architecture, UX/UI, and approach validation before writing a single line of code."
+        },
+        "development": {
+          "title": "Development",
+          "description": "Iterative sprints with concrete deliverables. Repository access and weekly demos."
+        },
+        "delivery": {
+          "title": "Delivery",
+          "description": "Deployment, documentation, training, and full handoff. The product is yours."
+        },
+        "support": {
+          "title": "Support",
+          "description": "Monitoring, maintenance, and continuous evolution. We're with your product long-term."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to transform your business?",
+      "subtitle": "Tell us about your project and we'll get back to you in under 24 hours.",
+      "cta": "Start a project",
+      "ctaSecondary": "Chat on WhatsApp"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Projects that generate real impact",
+    "filterAll": "All",
+    "metrics": {
+      "before": "Before",
+      "after": "After"
+    },
+    "caseStudy": {
+      "technologies": "Technologies",
+      "challenge": "The Challenge",
+      "solution": "The Solution",
+      "results": "Results",
+      "cta": "Have a similar project?",
+      "ctaButton": "Request a quote"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Complete software solutions for every stage of your business",
+    "togglePrices": "Show prices",
+    "hidePrices": "Hide prices",
+    "from": "From",
+    "cta": "Request a quote",
+    "calculator": {
+      "title": "Budget Calculator",
+      "subtitle": "Get an approximate estimate for your project",
+      "step1": "Project Type",
+      "step2": "Modules",
+      "step3": "Timeline",
+      "result": "Estimate",
+      "cta": "Formalize quote"
+    }
+  },
+  "quote": {
+    "title": "Request a Quote",
+    "subtitle": "Tell us about your project and we'll prepare a personalized proposal",
+    "step1": {
+      "title": "Personal Information",
+      "name": "Full name",
+      "email": "Email address",
+      "company": "Company (optional)",
+      "phone": "Phone (optional)"
+    },
+    "step2": {
+      "title": "About Your Project",
+      "projectType": "Project type",
+      "modules": "Required modules",
+      "deadline": "Estimated timeline",
+      "budget": "Budget range"
+    },
+    "step3": {
+      "title": "Additional Details",
+      "description": "Describe your project",
+      "submit": "Submit quote"
+    },
+    "success": {
+      "title": "Quote submitted!",
+      "message": "We'll review your request and contact you within 24 hours.",
+      "cta": "Back to home"
+    },
+    "types": {
+      "webapp": "Web Application",
+      "mobile": "Mobile App",
+      "ecommerce": "E-commerce",
+      "automation": "Automation",
+      "api": "API / Integration",
+      "other": "Other"
+    }
+  },
+  "about": {
+    "title": "About Klarity",
+    "subtitle": "A development firm focused on business results",
+    "philosophy": {
+      "title": "Our Philosophy",
+      "text": "We don't sell code. We solve businesses. Every project we take is an opportunity to generate real impact."
+    },
+    "team": {
+      "title": "The Team"
+    },
+    "values": {
+      "title": "Our Values"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "We're ready to hear about your project",
+    "form": {
+      "name": "Name",
+      "email": "Email address",
+      "message": "Message",
+      "submit": "Send message",
+      "success": "Message sent! We'll get back to you soon.",
+      "error": "There was an error. Please try again."
+    },
+    "info": {
+      "email": "hello@klarity.dev",
+      "whatsapp": "WhatsApp",
+      "location": "Mexico"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Insights on technology, business, and software development",
+    "readTime": "min read",
+    "readMore": "Read article",
+    "noTranslation": "This article is only available in Spanish.",
+    "comingSoon": "Coming soon — Our first articles are on the way.",
+    "notFound": "Article not found."
+  },
+  "footer": {
+    "tagline": "We don't sell code. We solve businesses.",
+    "links": {
+      "title": "Navigation"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Notice",
+      "terms": "Terms of Use"
+    },
+    "rights": "All rights reserved."
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
+  "language": {
+    "toggle": "Change language",
+    "es": "Español",
+    "en": "English"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "tryAgain": "Try again",
+    "close": "Close",
+    "next": "Next",
+    "back": "Back",
+    "seeAll": "See all",
+    "learnMore": "Learn more"
+  },
+  "metadata": {
+    "title": "Klarity — Custom Software Development",
+    "description": "We don't sell code. We solve businesses. Custom software development focused on business results."
+  },
+  "cookies": {
+    "message": "We use cookies to improve your experience. You can manage your preferences.",
+    "accept": "Accept all",
+    "decline": "Essential only",
+    "manage": "Manage",
+    "essential": "Essential",
+    "analytics": "Analytics",
+    "marketing": "Marketing"
+  }
+}

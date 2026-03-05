@@ -1,0 +1,241 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "portfolio": "Portafolio",
+    "services": "Servicios",
+    "quote": "Cotizar",
+    "about": "Nosotros",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "home": {
+    "hero": {
+      "tagline": "No vendemos código. Resolvemos negocios.",
+      "subtitle": "Desarrollamos software a medida que transforma procesos, elimina ineficiencias y genera resultados medibles para tu empresa.",
+      "cta": "Solicitar cotización",
+      "ctaSecondary": "Ver portafolio",
+      "badge": "Desarrollo de Software a Medida"
+    },
+    "projects": {
+      "title": "Proyectos Destacados",
+      "subtitle": "Soluciones que han generado impacto real en negocios como el tuyo",
+      "cta": "Ver todos los proyectos"
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "subtitle": "De la idea al producto — cubrimos todo el ciclo de desarrollo",
+      "cta": "Ver todos los servicios"
+    },
+    "value": {
+      "title": "Por qué Klarity",
+      "subtitle": "No somos una agencia más. Somos tu socio tecnológico orientado a resultados.",
+      "items": {
+        "results": {
+          "title": "Orientados a Resultados",
+          "description": "Cada decisión técnica está alineada con tus objetivos de negocio."
+        },
+        "quality": {
+          "title": "Código de Calidad",
+          "description": "Arquitectura limpia, documentada y mantenible. Sin deuda técnica acumulada."
+        },
+        "speed": {
+          "title": "Entregas Rápidas",
+          "description": "Metodología ágil con sprints de 2 semanas y demos frecuentes."
+        },
+        "support": {
+          "title": "Soporte Continuo",
+          "description": "No desaparecemos tras el deploy. Soporte y evolución continua de tu producto."
+        }
+      }
+    },
+    "process": {
+      "title": "Cómo Trabajamos",
+      "subtitle": "Un proceso claro y transparente de principio a fin",
+      "steps": {
+        "discovery": {
+          "title": "Descubrimiento",
+          "description": "Entendemos tu negocio, procesos y objetivos. Definimos el alcance y los KPIs del proyecto."
+        },
+        "design": {
+          "title": "Diseño",
+          "description": "Arquitectura de la solución, UX/UI, y validación del enfoque antes de escribir una sola línea de código."
+        },
+        "development": {
+          "title": "Desarrollo",
+          "description": "Sprints iterativos con entregables concretos. Acceso al repositorio y demos semanales."
+        },
+        "delivery": {
+          "title": "Entrega",
+          "description": "Deploy, documentación, capacitación y handoff completo. El producto es tuyo."
+        },
+        "support": {
+          "title": "Soporte",
+          "description": "Monitoreo, mantenimiento y evolución continua. Estamos con tu producto a largo plazo."
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para transformar tu negocio?",
+      "subtitle": "Cuéntanos tu proyecto y te responderemos en menos de 24 horas.",
+      "cta": "Iniciar proyecto",
+      "ctaSecondary": "Hablar por WhatsApp"
+    }
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "subtitle": "Proyectos que generan impacto real",
+    "filterAll": "Todos",
+    "metrics": {
+      "before": "Antes",
+      "after": "Después"
+    },
+    "caseStudy": {
+      "technologies": "Tecnologías",
+      "challenge": "El Reto",
+      "solution": "La Solución",
+      "results": "Resultados",
+      "cta": "¿Tienes un proyecto similar?",
+      "ctaButton": "Solicitar cotización"
+    }
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Soluciones de software completas para cada etapa de tu negocio",
+    "togglePrices": "Mostrar precios",
+    "hidePrices": "Ocultar precios",
+    "from": "Desde",
+    "cta": "Solicitar cotización",
+    "calculator": {
+      "title": "Calculadora de Presupuesto",
+      "subtitle": "Obtén una estimación aproximada para tu proyecto",
+      "step1": "Tipo de Proyecto",
+      "step2": "Módulos",
+      "step3": "Plazo",
+      "result": "Estimación",
+      "cta": "Formalizar cotización"
+    }
+  },
+  "quote": {
+    "title": "Solicitar Cotización",
+    "subtitle": "Cuéntanos sobre tu proyecto y te prepararemos una propuesta personalizada",
+    "step1": {
+      "title": "Información Personal",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "company": "Empresa (opcional)",
+      "phone": "Teléfono (opcional)"
+    },
+    "step2": {
+      "title": "Sobre tu Proyecto",
+      "projectType": "Tipo de proyecto",
+      "modules": "Módulos requeridos",
+      "deadline": "Plazo estimado",
+      "budget": "Rango de presupuesto"
+    },
+    "step3": {
+      "title": "Detalles Adicionales",
+      "description": "Describe tu proyecto",
+      "submit": "Enviar cotización"
+    },
+    "success": {
+      "title": "¡Cotización enviada!",
+      "message": "Revisaremos tu solicitud y te contactaremos en menos de 24 horas.",
+      "cta": "Volver al inicio"
+    },
+    "types": {
+      "webapp": "Aplicación Web",
+      "mobile": "App Móvil",
+      "ecommerce": "E-commerce",
+      "automation": "Automatización",
+      "api": "API / Integración",
+      "other": "Otro"
+    }
+  },
+  "about": {
+    "title": "Sobre Klarity",
+    "subtitle": "Una firma de desarrollo orientada a resultados de negocio",
+    "philosophy": {
+      "title": "Nuestra Filosofía",
+      "text": "No vendemos código. Resolvemos negocios. Cada proyecto que tomamos es una oportunidad de generar impacto real."
+    },
+    "team": {
+      "title": "El Equipo"
+    },
+    "values": {
+      "title": "Nuestros Valores"
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Estamos listos para escuchar tu proyecto",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "success": "¡Mensaje enviado! Te responderemos pronto.",
+      "error": "Hubo un error. Intenta de nuevo."
+    },
+    "info": {
+      "email": "hola@klarity.dev",
+      "whatsapp": "WhatsApp",
+      "location": "México"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Insights sobre tecnología, negocios y desarrollo de software",
+    "readTime": "min de lectura",
+    "readMore": "Leer artículo",
+    "noTranslation": "Este artículo solo está disponible en español.",
+    "comingSoon": "Próximamente — Nuestros primeros artículos están en camino.",
+    "notFound": "Artículo no encontrado."
+  },
+  "footer": {
+    "tagline": "No vendemos código. Resolvemos negocios.",
+    "links": {
+      "title": "Navegación"
+    },
+    "legal": {
+      "privacy": "Política de Privacidad",
+      "cookies": "Aviso de Cookies",
+      "terms": "Términos de Uso"
+    },
+    "rights": "Todos los derechos reservados."
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Modo claro",
+    "dark": "Modo oscuro"
+  },
+  "language": {
+    "toggle": "Cambiar idioma",
+    "es": "Español",
+    "en": "English"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "tryAgain": "Intentar de nuevo",
+    "close": "Cerrar",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "seeAll": "Ver todos",
+    "learnMore": "Saber más"
+  },
+  "metadata": {
+    "title": "Klarity — Desarrollo de Software a Medida",
+    "description": "No vendemos código. Resolvemos negocios. Desarrollo de software personalizado orientado a resultados de negocio."
+  },
+  "cookies": {
+    "message": "Usamos cookies para mejorar tu experiencia. Puedes gestionar tus preferencias.",
+    "accept": "Aceptar todo",
+    "decline": "Solo esenciales",
+    "manage": "Gestionar",
+    "essential": "Esenciales",
+    "analytics": "Analítica",
+    "marketing": "Marketing"
+  }
+}

@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand Colors ── */
+  --color-background: #F2F0EB;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #1A1A1A;
+  --color-text-muted: #4A4A4A;
+
+  --color-bg-dark: #1B2A3E;
+  --color-surface-dark: #243447;
+  --color-text-dark: #F2F0EB;
+
+  --color-gold: #D4B483;
+  --color-gold-hover: #C4A06F;
+  --color-gold-text: #8a6220;
+
+  --color-success: #4CAF78;
+  --color-warning: #E8A838;
+  --color-error: #D94F4F;
+  --color-info: #4A90D9;
+
+  /* ── Typography ── */
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', 'DM Sans', system-ui, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  /* ── Spacing ── */
+  --spacing-section: 5rem;
+
+  /* ── Border Radius ── */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+/* ── CSS Variables for runtime theming ── */
+:root {
+  --bg: #F2F0EB;
+  --surface: #FFFFFF;
+  --text: #1A1A1A;
+  --text-muted: #4A4A4A;
+  --border: rgba(26, 26, 26, 0.1);
+  --border-on-slate: rgba(255, 255, 255, 0.1);
+  --gold: #D4B483;
+  --gold-hover: #C4A06F;
+  --gold-text: #8a6220;
+}
+
+[data-theme="dark"] {
+  --bg: #1B2A3E;
+  --surface: #243447;
+  --text: #F2F0EB;
+  --text-muted: rgba(242, 240, 235, 0.7);
+  --border: rgba(242, 240, 235, 0.1);
+  --border-on-slate: rgba(255, 255, 255, 0.1);
+  --gold: #D4B483;
+  --gold-hover: #C4A06F;
+  --gold-text: #D4B483;
+}
+
+/* ── Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Typography Utilities ── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--text);
+}
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ── Skip to content ── */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--gold);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}

@@ -1,11 +1,13 @@
+'use client'
+
 import Link from 'next/link'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { useTranslations, useLocale } from 'next-intl'
 import { Logo } from '@/components/atoms/Logo'
 
-export async function Footer() {
-  const t = await getTranslations('footer')
-  const navT = await getTranslations('nav')
-  const locale = await getLocale()
+export function Footer() {
+  const t = useTranslations('footer')
+  const navT = useTranslations('nav')
+  const locale = useLocale()
   const prefix = locale === 'en' ? '/en' : ''
 
   const currentYear = new Date().getFullYear()

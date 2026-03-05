@@ -1,0 +1,194 @@
+KLARITY PROPRIETARY SOFTWARE LICENSE
+=====================================
+Copyright (c) 2026 Klarity. All Rights Reserved.
+
+IMPORTANT — READ CAREFULLY BEFORE USING THIS SOFTWARE.
+
+This license agreement ("Agreement") is a legal agreement between you
+("Licensee") and Klarity ("Licensor") for the software, source code,
+object code, documentation, assets, and any associated materials
+contained in this repository ("Software").
+
+BY ACCESSING, CLONING, DOWNLOADING, OR OTHERWISE USING THIS SOFTWARE,
+YOU AGREE TO BE BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU DO NOT
+AGREE, DO NOT ACCESS OR USE THE SOFTWARE.
+
+────────────────────────────────────────────────────────────────────────
+1. GRANT OF LICENSE
+────────────────────────────────────────────────────────────────────────
+
+Subject to the terms of this Agreement, Licensor grants Licensee a
+limited, non-exclusive, non-transferable, non-sublicensable, revocable
+license to view the Software solely for internal evaluation purposes.
+
+No other rights are granted. All rights not expressly granted herein
+are reserved by Licensor.
+
+────────────────────────────────────────────────────────────────────────
+2. RESTRICTIONS
+────────────────────────────────────────────────────────────────────────
+
+Licensee shall NOT, directly or indirectly:
+
+  a) Copy, reproduce, duplicate, or create derivative works of the
+     Software or any portion thereof, in whole or in part;
+
+  b) Distribute, publish, transmit, transfer, sublicense, rent, lease,
+     lend, sell, or otherwise make the Software available to any third
+     party;
+
+  c) Modify, adapt, translate, reverse engineer, decompile, disassemble,
+     or attempt to derive the source code of the Software or any part
+     of it;
+
+  d) Use the Software, in whole or in part, to develop, train, or
+     improve any artificial intelligence, machine learning, or large
+     language model system;
+
+  e) Remove, alter, or obscure any proprietary notices, labels,
+     watermarks, or legends contained in or on the Software;
+
+  f) Use the Software for any commercial purpose or for any public
+     display (commercial or non-commercial) without prior written
+     consent from Licensor;
+
+  g) Use the name, trademarks, service marks, trade names, logos, or
+     other commercial designations of Klarity without prior written
+     consent;
+
+  h) Export or re-export the Software in violation of any applicable
+     law or regulation;
+
+  i) Grant any third party access to the Software or allow any third
+     party to use the Software in any manner.
+
+────────────────────────────────────────────────────────────────────────
+3. INTELLECTUAL PROPERTY
+────────────────────────────────────────────────────────────────────────
+
+The Software is proprietary to Licensor and is protected by copyright,
+trade secret, and other intellectual property laws worldwide.
+
+Licensor retains all right, title, and interest in and to the Software,
+including all intellectual property rights therein. No title to or
+ownership of the Software is transferred to Licensee under this
+Agreement.
+
+Any feedback, suggestions, or improvements provided by Licensee
+regarding the Software shall become the exclusive property of Licensor
+without any compensation to Licensee.
+
+────────────────────────────────────────────────────────────────────────
+4. CONFIDENTIALITY
+────────────────────────────────────────────────────────────────────────
+
+The Software, including its source code, architecture, design, and any
+non-public technical information, constitutes confidential and
+proprietary information of Licensor ("Confidential Information").
+
+Licensee agrees to:
+
+  a) Maintain the Confidential Information in strict confidence;
+
+  b) Not disclose the Confidential Information to any third party
+     without prior written consent of Licensor;
+
+  c) Use the Confidential Information solely for the purposes expressly
+     permitted under this Agreement;
+
+  d) Notify Licensor immediately upon discovery of any unauthorized use
+     or disclosure of the Confidential Information.
+
+────────────────────────────────────────────────────────────────────────
+5. NO WARRANTY
+────────────────────────────────────────────────────────────────────────
+
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND
+NON-INFRINGEMENT. LICENSOR DOES NOT WARRANT THAT THE SOFTWARE WILL BE
+ERROR-FREE, UNINTERRUPTED, SECURE, OR THAT DEFECTS WILL BE CORRECTED.
+
+────────────────────────────────────────────────────────────────────────
+6. LIMITATION OF LIABILITY
+────────────────────────────────────────────────────────────────────────
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL
+LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
+CONSEQUENTIAL, OR PUNITIVE DAMAGES (INCLUDING, WITHOUT LIMITATION, LOSS
+OF PROFITS, DATA, BUSINESS, OR GOODWILL) ARISING OUT OF OR IN
+CONNECTION WITH THIS AGREEMENT OR THE USE OR INABILITY TO USE THE
+SOFTWARE, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES.
+
+LICENSOR'S TOTAL CUMULATIVE LIABILITY TO LICENSEE FOR ALL CLAIMS
+ARISING OUT OF OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED USD $0.00.
+
+────────────────────────────────────────────────────────────────────────
+7. TERMINATION
+────────────────────────────────────────────────────────────────────────
+
+This Agreement is effective until terminated. Licensor may terminate
+this Agreement immediately and without notice if Licensee breaches any
+term of this Agreement.
+
+Upon termination:
+
+  a) All rights granted to Licensee under this Agreement immediately
+     cease;
+
+  b) Licensee must immediately destroy all copies of the Software in
+     its possession or control, including all backups;
+
+  c) Licensee must certify in writing to Licensor that all copies have
+     been destroyed upon request.
+
+Sections 2, 3, 4, 5, 6, 8, and 9 shall survive termination.
+
+────────────────────────────────────────────────────────────────────────
+8. GOVERNING LAW AND JURISDICTION
+────────────────────────────────────────────────────────────────────────
+
+This Agreement shall be governed by and construed in accordance with
+the laws of the United Mexican States (México), without regard to its
+conflict of law provisions.
+
+Any dispute arising out of or in connection with this Agreement shall
+be subject to the exclusive jurisdiction of the competent courts of
+Mexico City, México. The parties irrevocably waive any objection to
+such jurisdiction.
+
+────────────────────────────────────────────────────────────────────────
+9. GENERAL PROVISIONS
+────────────────────────────────────────────────────────────────────────
+
+  a) Entire Agreement. This Agreement constitutes the entire agreement
+     between the parties with respect to the Software and supersedes
+     all prior agreements, representations, and understandings.
+
+  b) Severability. If any provision of this Agreement is held invalid
+     or unenforceable, such provision shall be modified to the minimum
+     extent necessary to make it enforceable, and the remaining
+     provisions shall continue in full force.
+
+  c) No Waiver. Failure by Licensor to enforce any right under this
+     Agreement shall not constitute a waiver of that right.
+
+  d) No Assignment. Licensee may not assign or transfer this Agreement
+     or any rights hereunder without prior written consent of Licensor.
+     Any purported assignment in violation of this section is void.
+
+  e) Amendments. Licensor may amend this Agreement at any time by
+     posting an updated version. Continued use of the Software after
+     such amendment constitutes acceptance of the new terms.
+
+  f) Contact. For licensing inquiries or permissions beyond the scope
+     of this Agreement, contact: hola@klarity.dev
+
+────────────────────────────────────────────────────────────────────────
+
+ALL RIGHTS RESERVED. UNAUTHORIZED USE, REPRODUCTION, OR DISTRIBUTION
+OF THIS SOFTWARE, IN WHOLE OR IN PART, IS STRICTLY PROHIBITED AND MAY
+RESULT IN SEVERE CIVIL AND CRIMINAL PENALTIES.
+
+© 2026 Klarity — https://klarity.dev

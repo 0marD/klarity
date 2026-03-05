@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import { Navbar } from '@/components/organisms/Navbar'
 import { Footer } from '@/components/organisms/Footer'
 import { WhatsAppButton } from '@/components/atoms/WhatsAppButton'
@@ -18,9 +17,7 @@ export function PageLayout({ children }: PageLayoutProps) {
       <main id="main-content" className="flex-1 pt-16" tabIndex={-1}>
         {children}
       </main>
-      <Suspense fallback={<div className="h-48 bg-[var(--surface)] border-t border-[var(--border)]" />}>
-        <Footer />
-      </Suspense>
+      <Footer />
       <WhatsAppButton />
       <CookieBanner />
     </div>

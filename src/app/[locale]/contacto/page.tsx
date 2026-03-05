@@ -30,7 +30,7 @@ export default function ContactPage() {
   return (
     <PageLayout>
       <div className="py-20 px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             variants={staggerContainerVariants}
             initial="hidden"

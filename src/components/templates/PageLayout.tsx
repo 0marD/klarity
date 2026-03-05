@@ -2,6 +2,7 @@ import { Navbar } from '@/components/organisms/Navbar'
 import { Footer } from '@/components/organisms/Footer'
 import { WhatsAppButton } from '@/components/atoms/WhatsAppButton'
 import { CookieBanner } from '@/components/organisms/CookieBanner'
+import { PWAInstallPrompt } from '@/components/organisms/PWAInstallPrompt'
 
 type PageLayoutProps = {
   children: React.ReactNode
@@ -20,6 +21,7 @@ export function PageLayout({ children }: PageLayoutProps) {
       <Footer />
       <WhatsAppButton />
       <CookieBanner />
+      <PWAInstallPrompt />
     </div>
   )
 }

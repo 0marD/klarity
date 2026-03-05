@@ -229,6 +229,15 @@
     "title": "Klarity — Desarrollo de Software a Medida",
     "description": "No vendemos código. Resolvemos negocios. Desarrollo de software personalizado orientado a resultados de negocio."
   },
+  "pwa": {
+    "title": "Instalar Klarity",
+    "subtitle": "Acceso rápido desde tu pantalla de inicio",
+    "description": "Instala la app para acceder sin abrir el navegador y funcionar sin conexión.",
+    "install": "Instalar",
+    "later": "Más tarde",
+    "never": "No volver a preguntar",
+    "iconLabel": "Instalar aplicación"
+  },
   "cookies": {
     "message": "Usamos cookies para mejorar tu experiencia. Puedes gestionar tus preferencias.",
     "accept": "Aceptar todo",

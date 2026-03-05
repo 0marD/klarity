@@ -229,6 +229,15 @@
     "title": "Klarity — Custom Software Development",
     "description": "We don't sell code. We solve businesses. Custom software development focused on business results."
   },
+  "pwa": {
+    "title": "Install Klarity",
+    "subtitle": "Quick access from your home screen",
+    "description": "Install the app for faster access without opening a browser, and works offline.",
+    "install": "Install",
+    "later": "Later",
+    "never": "Don't ask again",
+    "iconLabel": "Install app"
+  },
   "cookies": {
     "message": "We use cookies to improve your experience. You can manage your preferences.",
     "accept": "Accept all",

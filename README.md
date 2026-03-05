@@ -162,15 +162,15 @@ src/
 
 ## Internacionalización
 
-El sitio soporta **español** (default) e **inglés** desde el primer deploy.
+El sitio soporta **español** e **inglés** desde el primer deploy. Ambos locales usan prefijo de ruta.
 
 | Idioma | URL |
 |---|---|
-| Español | `klarity.dev/` `klarity.dev/portafolio` ... |
+| Español | `klarity.dev/es/` `klarity.dev/es/portafolio` ... |
 | Inglés | `klarity.dev/en/` `klarity.dev/en/portafolio` ... |
 
-- Detección automática por cookie `klarity_locale` → `Accept-Language` header → fallback ES
-- El switch de idioma persiste la preferencia en cookie (1 año)
+- Detección automática por cookie `NEXT_LOCALE` → `Accept-Language` header → fallback ES
+- El switch de idioma persiste la preferencia en cookies `klarity_locale` y `NEXT_LOCALE` (1 año)
 - Metadatos SEO con `hreflang` alternates en cada página
 
 ---
@@ -214,6 +214,16 @@ El sitio funciona como Progressive Web App:
 - **Página offline** en `/offline` con branding Klarity
 - Instalable en móvil y escritorio
 
+**Prompt de instalación** (`PWAInstallPrompt`): modal bilingüe que aparece a los 3.5 s con tres opciones:
+
+| Opción | Comportamiento |
+|---|---|
+| Instalar | Dispara el prompt nativo del navegador |
+| Más tarde | Oculta el modal esta sesión · muestra ícono discreto en esquina inferior izquierda |
+| No volver a preguntar | Persiste en `localStorage` · muestra ícono discreto permanente |
+
+El ícono discreto (40 px, opacidad 40 %) desaparece al completar la instalación.
+
 ---
 
 ## Cookie Consent
@@ -239,6 +249,17 @@ La preferencia se persiste en `localStorage` (`klarity_cookie_consent`).
 | `mobile-nav.spec.ts` | Menú hamburger en 375px |
 | `portfolio.spec.ts` | Grid, filtros, navegación a detalle |
 | `admin-auth.spec.ts` | Redirect a /login sin sesión, Magic Link |
+
+---
+
+## Notas de UI
+
+| Componente | Detalle |
+|---|---|
+| `ServiceCard` | Altura uniforme en cada fila: `flex-col h-full` + `flex-1` en descripción |
+| Página `/contacto` | Grid `[3fr 2fr]` + `max-w-4xl` — formulario más compacto, columna de info proporcional |
+| `LanguageSwitcher` | Ambos locales usan prefijo (`/es/`, `/en/`) — switch escribe `NEXT_LOCALE` y `klarity_locale` |
+| `Footer` | Client Component (`useTranslations`) para ser compatible con páginas `'use client'` |
 
 ---
 

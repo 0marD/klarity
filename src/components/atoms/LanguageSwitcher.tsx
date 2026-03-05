@@ -22,21 +22,19 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
   const switchLocale = (newLocale: string) => {
     if (newLocale === locale) return
 
-    // Save preference in cookie
-    document.cookie = `klarity_locale=${newLocale}; max-age=${60 * 60 * 24 * 365}; path=/; SameSite=Lax`
+    const cookieOptions = 'max-age=31536000; path=/; SameSite=Lax'
+    document.cookie = `klarity_locale=${newLocale}; ${cookieOptions}`
+    document.cookie = `NEXT_LOCALE=${newLocale}; ${cookieOptions}`
 
-    // Navigate to new locale path
-    const segments = pathname.split('/')
-    if (segments[1] === 'en' || segments[1] === 'es') {
-      segments[1] = newLocale === 'es' ? '' : newLocale
+    // All locales use a prefix (/es/... and /en/...)
+    const parts = pathname.split('/').filter(Boolean)
+    if (parts[0] === 'es' || parts[0] === 'en') {
+      parts[0] = newLocale
     } else {
-      if (newLocale !== 'es') {
-        segments.splice(1, 0, newLocale)
-      }
+      parts.unshift(newLocale)
     }
 
-    const newPath = segments.join('/').replace(/\/+/g, '/') || '/'
-    router.push(newPath)
+    router.push('/' + parts.join('/'))
   }
 
   const nextLocale = locale === 'es' ? 'en' : 'es'

@@ -27,7 +27,7 @@ export function ServiceCard({ service, showPrice = false, href, locale = 'es' }:
   const content = (
     <div
       className={cn(
-        'group relative bg-[var(--surface)] rounded-xl p-6',
+        'group relative flex h-full flex-col bg-[var(--surface)] rounded-xl p-6',
         'border border-[var(--border)]',
         'hover:border-[var(--gold)]/50 hover:shadow-md',
         'transition-all duration-300',
@@ -43,7 +43,7 @@ export function ServiceCard({ service, showPrice = false, href, locale = 'es' }:
       <h3 className="font-display text-xl font-semibold text-[var(--text)] mb-2">
         {service.title}
       </h3>
-      <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-4">
+      <p className="flex-1 text-sm text-[var(--text-muted)] leading-relaxed mb-4">
         {service.description}
       </p>
 
@@ -80,7 +80,7 @@ export function ServiceCard({ service, showPrice = false, href, locale = 'es' }:
     return (
       <Link
         href={href}
-        className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] rounded-xl"
+        className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] rounded-xl"
         aria-label={`Servicio: ${service.title}`}
       >
         {content}

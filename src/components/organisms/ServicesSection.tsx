@@ -35,7 +35,7 @@ export function ServicesSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredServices.map((service) => (
-              <motion.div key={service.id} variants={fadeUpVariants}>
+              <motion.div key={service.id} variants={fadeUpVariants} className="h-full">
                 <ServiceCard
                   service={service}
                   href={`${prefix}/servicios#${service.slug}`}

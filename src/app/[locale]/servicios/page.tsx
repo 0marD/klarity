@@ -45,7 +45,7 @@ export default function ServicesPage() {
             {/* Services grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service) => (
-                <motion.div key={service.id} variants={fadeUpVariants} id={service.slug}>
+                <motion.div key={service.id} variants={fadeUpVariants} id={service.slug} className="h-full">
                   <ServiceCard
                     service={service}
                     showPrice={showPrices}

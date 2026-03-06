@@ -16,7 +16,9 @@ export default function LoginPage() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    if (params.get('error') === 'auth') setStatus('error')
+    if (params.get('error') === 'auth' || params.get('error') === 'unauthorized') {
+      setStatus('error')
+    }
   }, [])
 
   const handleLogin = async (e: React.FormEvent) => {

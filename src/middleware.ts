@@ -40,6 +40,17 @@ export default async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL('/login', request.url))
     }
 
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+
+    const allowedRoles = ['admin', 'editor', 'viewer']
+    if (!profile || !allowedRoles.includes(profile.role)) {
+      return NextResponse.redirect(new URL('/login?error=unauthorized', request.url))
+    }
+
     return response
   }
 

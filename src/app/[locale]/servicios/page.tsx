@@ -10,6 +10,7 @@ import { ServiceCard } from '@/components/molecules/ServiceCard'
 import { Button } from '@/components/atoms/Button'
 import { staggerContainerVariants, fadeUpVariants } from '@/lib/animations'
 import { services } from '@/content/services'
+import { Logo } from '@/components/atoms/Logo'
 
 export default function ServicesPage() {
   const t = useTranslations('services')
@@ -26,6 +27,11 @@ export default function ServicesPage() {
             initial="hidden"
             animate="visible"
           >
+            {/* Logo */}
+            <motion.div variants={fadeUpVariants} className="flex justify-center mb-6">
+              <Logo size="lg" />
+            </motion.div>
+
             {/* Header */}
             <motion.div variants={fadeUpVariants} className="flex items-end justify-between mb-8 flex-wrap gap-4">
               <SectionHeader

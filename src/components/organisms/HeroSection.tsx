@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/atoms/Button'
 import { Badge } from '@/components/atoms/Badge'
+import { Logo } from '@/components/atoms/Logo'
 import { fadeUpVariants, staggerContainerVariants } from '@/lib/animations'
 
 export function HeroSection() {
@@ -35,13 +36,10 @@ export function HeroSection() {
           <Badge variant="gold">{t('badge')}</Badge>
         </motion.div>
 
-        {/* Eyebrow */}
-        <motion.p
-          variants={fadeUpVariants}
-          className="font-display italic text-xl text-[var(--gold-text)] mb-2"
-        >
-          Klarity.
-        </motion.p>
+        {/* Logo */}
+        <motion.div variants={fadeUpVariants} className="mb-4 flex justify-center">
+          <Logo size="xl" />
+        </motion.div>
 
         {/* Tagline */}
         <motion.h1

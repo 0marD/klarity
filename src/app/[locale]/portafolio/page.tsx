@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { PageLayout } from '@/components/templates/PageLayout'
 import { SectionHeader } from '@/components/molecules/SectionHeader'
 import { ProjectCard } from '@/components/molecules/ProjectCard'
+import { Logo } from '@/components/atoms/Logo'
 import { staggerContainerVariants, fadeUpVariants } from '@/lib/animations'
 import { projects } from '@/content/projects'
 
@@ -26,12 +27,14 @@ export default function PortfolioPage() {
             initial="hidden"
             animate="visible"
           >
+            <motion.div variants={fadeUpVariants} className="flex justify-center mb-4">
+              <Logo size="lg" />
+            </motion.div>
             <motion.div variants={fadeUpVariants}>
               <SectionHeader
                 title={t('title')}
                 subtitle={t('subtitle')}
                 align="center"
-                eyebrow="Klarity."
               />
             </motion.div>
 

@@ -1,295 +1,305 @@
-# Klarity — Sitio Web Corporativo
+# Klarity — Corporate Website
 
-> *"No vendemos código. Resolvemos negocios."*
+> *"We don't sell code. We solve businesses."*
 
-Sitio web de la firma de desarrollo de software **Klarity**. Construido con Next.js 16, TypeScript estricto, Tailwind CSS v4, Supabase y soporte nativo para español e inglés.
+Website for the software development firm **Klarity**. Built with Next.js 16, strict TypeScript, Tailwind CSS v4, Supabase, and native support for Spanish and English.
+
+Live: [klarity-mocha.vercel.app](https://klarity-mocha.vercel.app)
 
 ---
 
 ## Stack
 
-| Capa | Tecnología |
+| Layer | Technology |
 |---|---|
 | Framework | Next.js 16 (App Router, Turbopack) |
-| Lenguaje | TypeScript 5 — `strict: true` |
-| Estilos | Tailwind CSS v4 + CSS Variables |
-| Internacionalización | next-intl 4 — ES (default) + EN |
-| Base de datos | Supabase (PostgreSQL + Realtime + Storage) |
+| Language | TypeScript 5 — `strict: true` |
+| Styles | Tailwind CSS v4 + CSS Variables |
+| Internationalization | next-intl 4 — ES (default) + EN |
+| Database | Supabase (PostgreSQL + Realtime + Storage) |
 | Auth | Supabase Auth (Magic Link) |
 | Email | Resend + React Email |
-| Animaciones | Framer Motion 12 |
-| Formularios | React Hook Form + Zod |
-| Tests unitarios | Vitest + Testing Library |
-| Tests E2E | Playwright |
+| Animations | Framer Motion 12 |
+| Forms | React Hook Form + Zod |
+| Unit tests | Vitest + Testing Library |
+| E2E tests | Playwright |
 | Deploy | Vercel |
 
 ---
 
-## Requisitos
+## Requirements
 
 - Node.js ≥ 20
 - Yarn ≥ 1.22
-- Cuenta en [Supabase](https://supabase.com) (para funcionalidad completa)
+- [Supabase](https://supabase.com) account (for full functionality)
 
 ---
 
-## Instalación
+## Setup
 
 ```bash
-# 1. Clonar el repositorio
+# 1. Clone the repository
 git clone <repo-url> klarity
 cd klarity
 
-# 2. Instalar dependencias
+# 2. Install dependencies
 yarn install
 
-# 3. Configurar variables de entorno
+# 3. Configure environment variables
 cp .env.local.example .env.local
-# Editar .env.local con tus credenciales
+# Edit .env.local with your credentials
 
-# 4. Iniciar servidor de desarrollo
+# 4. Start development server
 yarn dev
 ```
 
-La aplicación estará disponible en `http://localhost:3000`.
+The app will be available at `http://localhost:3000`.
 
 ---
 
-## Variables de Entorno
+## Environment Variables
 
-Copia `.env.local.example` a `.env.local` y completa los valores:
+Copy `.env.local.example` to `.env.local` and fill in the values:
 
 ```bash
-# Supabase (requerido para auth, cotizaciones y panel admin)
+# Supabase (required for auth, quotes, and admin panel)
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=        # Solo servidor — nunca exponer al cliente
+SUPABASE_SERVICE_ROLE_KEY=        # Server only — never expose to the client
 
 # Email — Resend
 RESEND_API_KEY=
 RESEND_FROM_EMAIL=hola@klarity.dev
 RESEND_FROM_EMAIL_EN=hello@klarity.dev
 
-# IA — OpenAI
+# AI — OpenAI
 OPENAI_API_KEY=
 
-# CRM (opcional)
+# CRM (optional)
 HUBSPOT_ACCESS_TOKEN=
 
-# Analytics (opcional)
+# Analytics (optional)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 NEXT_PUBLIC_GTM_ID=
 
-# WhatsApp — formato: 521XXXXXXXXXX
+# WhatsApp — format: 521XXXXXXXXXX
 NEXT_PUBLIC_WHATSAPP_NUMBER=
 
-# Seguridad
+# Security
 NEXTAUTH_SECRET=                  # openssl rand -base64 32
 ```
 
-> Sin Supabase configurado, el sitio funciona con datos estáticos. El panel admin y el formulario de cotización requieren Supabase.
+> Without Supabase configured, the site runs with static data. The admin panel and quote form require Supabase.
 
 ---
 
-## Comandos
+## Commands
 
 ```bash
-# Desarrollo
-yarn dev                # Servidor de desarrollo (Turbopack)
+# Development
+yarn dev                # Development server (Turbopack)
 
-# Calidad de código
+# Code quality
 yarn lint               # ESLint
-yarn lint:fix           # ESLint con auto-fix
+yarn lint:fix           # ESLint with auto-fix
 yarn format             # Prettier
-yarn type-check         # TypeScript sin emitir archivos
+yarn type-check         # TypeScript without emitting files
 
 # Tests
-yarn test               # Vitest (unitarios)
-yarn test:watch         # Vitest en modo watch
-yarn test:coverage      # Cobertura de tests
+yarn test               # Vitest (unit)
+yarn test:watch         # Vitest in watch mode
+yarn test:coverage      # Test coverage
 
-# Tests E2E (requiere servidor corriendo o lo inicia solo)
+# E2E tests (requires a running server or starts one automatically)
 yarn test:e2e           # Playwright headless
-yarn test:e2e:ui        # Playwright con interfaz visual
+yarn test:e2e:ui        # Playwright with visual UI
 
 # Build
-yarn build              # Build de producción
-yarn start              # Servidor de producción
+yarn build              # Production build
+yarn start              # Production server
 yarn analyze            # Bundle analyzer
 ```
 
 ---
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── [locale]/              # Rutas localizadas (ES sin prefijo, EN con /en)
+│   ├── [locale]/              # Localized routes (ES no prefix, EN with /en)
 │   │   ├── page.tsx           # Home
-│   │   ├── portafolio/        # Lista + detalle [slug]
+│   │   ├── portafolio/        # List + detail [slug]
 │   │   ├── servicios/
-│   │   ├── cotizacion/        # Formulario multi-paso
+│   │   ├── cotizacion/        # Multi-step quote form
 │   │   ├── nosotros/
 │   │   ├── blog/
 │   │   ├── contacto/
 │   │   └── login/             # Magic Link
-│   ├── admin/                 # Panel de administración (requiere auth)
+│   ├── admin/                 # Admin panel (requires auth)
 │   │   ├── dashboard/
-│   │   ├── cotizaciones/      # Kanban drag & drop
+│   │   ├── cotizaciones/      # Drag & drop Kanban
 │   │   ├── proyectos/
 │   │   └── servicios/
 │   ├── api/
-│   │   └── quotes/route.ts    # POST con rate limiting
-│   ├── offline/page.tsx       # Página PWA sin conexión
-│   ├── sitemap.ts             # Sitemap dinámico
+│   │   └── quotes/route.ts    # POST with rate limiting
+│   ├── offline/page.tsx       # PWA offline page
+│   ├── sitemap.ts             # Dynamic sitemap
 │   └── robots.ts
 ├── components/
 │   ├── atoms/                 # Button, Input, Badge, Logo, ThemeToggle, LanguageSwitcher
 │   ├── molecules/             # ProjectCard, ServiceCard, SectionHeader
 │   ├── organisms/             # Navbar, Footer, HeroSection, CookieBanner, KanbanBoard
 │   └── templates/             # PageLayout, AdminLayout
-├── content/                   # Datos estáticos: proyectos, servicios, testimonios
+├── content/                   # Static data: projects, services, testimonials
 ├── hooks/                     # useTheme
 ├── lib/                       # supabase/, validations/, animations, utils
 ├── messages/
-│   ├── es.json                # Traducciones en español
-│   └── en.json                # Traducciones en inglés
-└── types/                     # Tipos TypeScript: database, quote, project
+│   ├── es.json                # Spanish translations
+│   └── en.json                # English translations
+└── types/                     # TypeScript types: database, quote, project
 ```
 
 ---
 
-## Internacionalización
+## Internationalization
 
-El sitio soporta **español** e **inglés** desde el primer deploy. Ambos locales usan prefijo de ruta.
+The site supports **Spanish** and **English** from the first deploy. Both locales use a URL prefix.
 
-| Idioma | URL |
+| Language | URL |
 |---|---|
-| Español | `klarity.dev/es/` `klarity.dev/es/portafolio` ... |
-| Inglés | `klarity.dev/en/` `klarity.dev/en/portafolio` ... |
+| Spanish | `klarity.dev/es/` `klarity.dev/es/portafolio` ... |
+| English | `klarity.dev/en/` `klarity.dev/en/portafolio` ... |
 
-- Detección automática por cookie `NEXT_LOCALE` → `Accept-Language` header → fallback ES
-- El switch de idioma persiste la preferencia en cookies `klarity_locale` y `NEXT_LOCALE` (1 año)
-- Metadatos SEO con `hreflang` alternates en cada página
+- Automatic detection: `NEXT_LOCALE` cookie → `Accept-Language` header → fallback ES
+- The language switcher persists the preference in `klarity_locale` and `NEXT_LOCALE` cookies (1 year)
+- SEO metadata with `hreflang` alternates on every page
 
 ---
 
-## Páginas Públicas
+## Public Pages
 
-| Ruta | Descripción |
+| Route | Description |
 |---|---|
-| `/` | Hero, carrusel de proyectos, servicios destacados, proceso, CTA |
-| `/portafolio` | Grid con filtros por tag |
-| `/portafolio/[slug]` | Caso de estudio con métricas antes/después |
-| `/servicios` | Cards de servicios con toggle de precios |
-| `/cotizacion` | Formulario wizard de 3 pasos + Zod |
-| `/nosotros` | Filosofía, equipo y valores |
-| `/blog` | Artículos MDX |
-| `/contacto` | Formulario + datos de contacto |
+| `/` | Hero, project carousel, featured services, process timeline, CTA |
+| `/portafolio` | Grid with tag filters |
+| `/portafolio/[slug]` | Case study with before/after metrics |
+| `/servicios` | Service cards with price toggle |
+| `/cotizacion` | 3-step wizard form + Zod validation |
+| `/nosotros` | Philosophy, team and values |
+| `/blog` | MDX articles |
+| `/contacto` | Contact form + contact info |
 
 ---
 
-## Panel de Administración
+## Admin Panel
 
-Accesible en `/admin` — requiere sesión activa (Magic Link a email autorizado).
+Accessible at `/admin` — requires an active session (Magic Link to an authorized email).
 
-| Sección | Funcionalidad |
+| Section | Functionality |
 |---|---|
-| Dashboard | KPIs: cotizaciones del mes, tasa de conversión |
-| Cotizaciones | Kanban drag & drop por estado |
-| Proyectos | CRUD + upload de imágenes a Supabase Storage |
-| Servicios | Tabla de administración |
+| Dashboard | KPIs: monthly quotes, conversion rate |
+| Quotes | Drag & drop Kanban by status |
+| Projects | CRUD + image upload to Supabase Storage |
+| Services | Admin data table |
 
-**Roles:** `admin` → acceso total · `editor` → CRUD proyectos y cotizaciones · `viewer` → solo lectura
+**Roles:** `admin` → full access · `editor` → CRUD projects and quotes · `viewer` → read only
+
+### Magic Link setup (production)
+
+The magic link uses `window.location.origin` dynamically, so no code changes are needed. You only need to configure Supabase:
+
+1. **Supabase Dashboard → Authentication → URL Configuration**
+   - Set **Site URL** to your production URL (e.g. `https://klarity-mocha.vercel.app`)
+   - Add `https://klarity-mocha.vercel.app/**` to **Redirect URLs**
 
 ---
 
 ## PWA
 
-El sitio funciona como Progressive Web App:
+The site works as a Progressive Web App:
 
-- **Manifest** en `/favicon/site.webmanifest`
-- **Service Worker** (`/sw.js`) — cache-first para assets, network-first para páginas
-- **Página offline** en `/offline` con branding Klarity
-- Instalable en móvil y escritorio
+- **Manifest** at `/favicon/site.webmanifest`
+- **Service Worker** (`/sw.js`) — cache-first for assets, network-first for pages
+- **Offline page** at `/offline` with Klarity branding
+- Installable on mobile and desktop
 
-**Prompt de instalación** (`PWAInstallPrompt`): modal bilingüe que aparece a los 3.5 s con tres opciones:
+**Install prompt** (`PWAInstallPrompt`): bilingual modal that appears after 3.5s with three options:
 
-| Opción | Comportamiento |
+| Option | Behavior |
 |---|---|
-| Instalar | Dispara el prompt nativo del navegador |
-| Más tarde | Oculta el modal esta sesión · muestra ícono discreto en esquina inferior izquierda |
-| No volver a preguntar | Persiste en `localStorage` · muestra ícono discreto permanente |
+| Install | Triggers the browser's native install prompt |
+| Later | Hides the modal this session · shows a discrete icon in the bottom-left corner |
+| Don't ask again | Persists in `localStorage` · shows discrete icon permanently |
 
-El ícono discreto (40 px, opacidad 40 %) desaparece al completar la instalación.
+The discrete icon (40px, 40% opacity) disappears once the installation is complete.
 
 ---
 
 ## Cookie Consent
 
-Banner GDPR/LFPDPPP localizado (ES/EN) con tres niveles:
+Localized GDPR/LFPDPPP banner (ES/EN) with three levels:
 
-- **Esenciales** — siempre activas
-- **Analítica** — GA4 (se carga dinámicamente solo si se acepta)
+- **Essential** — always active
+- **Analytics** — GA4 (loaded dynamically only if accepted)
 - **Marketing** — GTM remarketing
 
-La preferencia se persiste en `localStorage` (`klarity_cookie_consent`).
+The preference is persisted in `localStorage` (`klarity_cookie_consent`).
 
 ---
 
-## Tests E2E — Flujos cubiertos
+## E2E Tests — Covered flows
 
-| Archivo | Escenario |
+| File | Scenario |
 |---|---|
-| `navigation.spec.ts` | Todas las páginas públicas renderizan sin error |
-| `quote-form.spec.ts` | Flujo completo del formulario de cotización en ES y EN |
-| `language-switch.spec.ts` | Switch ES ↔ EN, URL, cookie y contenido |
-| `theme-toggle.spec.ts` | Light/dark, persistencia en localStorage |
-| `mobile-nav.spec.ts` | Menú hamburger en 375px |
-| `portfolio.spec.ts` | Grid, filtros, navegación a detalle |
-| `admin-auth.spec.ts` | Redirect a /login sin sesión, Magic Link |
+| `navigation.spec.ts` | All public pages render without error |
+| `quote-form.spec.ts` | Full quote form flow in ES and EN |
+| `language-switch.spec.ts` | ES ↔ EN switch, URL, cookie and content |
+| `theme-toggle.spec.ts` | Light/dark mode, persistence in localStorage |
+| `mobile-nav.spec.ts` | Hamburger menu at 375px |
+| `portfolio.spec.ts` | Grid, filters, navigation to detail |
+| `admin-auth.spec.ts` | Redirect to /login without session, Magic Link |
 
 ---
 
-## Notas de UI
+## UI Notes
 
-| Componente | Detalle |
+| Component | Detail |
 |---|---|
-| `ServiceCard` | Altura uniforme en cada fila: `flex-col h-full` + `flex-1` en descripción |
-| Página `/contacto` | Grid `[3fr 2fr]` + `max-w-4xl` — formulario más compacto, columna de info proporcional |
-| `LanguageSwitcher` | Ambos locales usan prefijo (`/es/`, `/en/`) — switch escribe `NEXT_LOCALE` y `klarity_locale` |
-| `Footer` | Client Component (`useTranslations`) para ser compatible con páginas `'use client'` |
+| `ServiceCard` | Uniform height per row: `flex-col h-full` + `flex-1` on description |
+| `/contacto` page | `[3fr 2fr]` grid + `max-w-4xl` — compact form, proportional info column |
+| `LanguageSwitcher` | Both locales use a prefix (`/es/`, `/en/`) — switcher writes `NEXT_LOCALE` and `klarity_locale` |
+| `Footer` | Client Component (`useTranslations`) for compatibility with `'use client'` pages |
 
 ---
 
-## Seguridad
+## Security
 
-- CSRF tokens en formularios públicos
-- CSP headers en `next.config.ts`
-- Rate limiting: 3 cotizaciones/IP/hora · 20 mensajes chat/sesión/hora
-- Validación Zod en frontend **y** en API Route (siempre)
-- `SUPABASE_SERVICE_ROLE_KEY` exclusivamente en servidor
-- Row Level Security (RLS) habilitado en todas las tablas
+- CSRF tokens on public forms
+- CSP headers in `next.config.ts`
+- Rate limiting: 3 quotes/IP/hour · 20 chat messages/session/hour
+- Zod validation on frontend **and** in API Route (always)
+- `SUPABASE_SERVICE_ROLE_KEY` exclusively on the server
+- Row Level Security (RLS) enabled on all tables
 
 ---
 
 ## Deploy
 
-El proyecto despliega automáticamente en **Vercel**:
+The project deploys automatically on **Vercel**:
 
 ```
-main → producción (klarity.dev)
-PR    → preview deploy (URL única por PR)
+main → production (klarity.dev)
+PR   → preview deploy (unique URL per PR)
 ```
 
-Checklist antes de deploy: ver [CLAUDE.md — Sección 20](./CLAUDE.md#20-checklist-antes-de-deploy).
+Pre-deploy checklist: see [CLAUDE.md — Section 20](./CLAUDE.md#20-checklist-antes-de-deploy).
 
 ---
 
-## Licencia
+## License
 
-Software propietario. Todos los derechos reservados.
-Ver [LICENSE](./LICENSE) para los términos completos.
+Proprietary software. All rights reserved.
+See [LICENSE](./LICENSE) for full terms.
 
 © 2026 Klarity — [klarity.dev](https://klarity.dev)

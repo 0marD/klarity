@@ -9,6 +9,7 @@ import { SectionHeader } from '@/components/molecules/SectionHeader'
 import { Input } from '@/components/atoms/Input'
 import { Button } from '@/components/atoms/Button'
 import { fadeUpVariants, staggerContainerVariants } from '@/lib/animations'
+import { Logo } from '@/components/atoms/Logo'
 
 export default function ContactPage() {
   const t = useTranslations('contact')
@@ -36,6 +37,9 @@ export default function ContactPage() {
             initial="hidden"
             animate="visible"
           >
+            <motion.div variants={fadeUpVariants} className="flex justify-center mb-4">
+              <Logo size="lg" />
+            </motion.div>
             <motion.div variants={fadeUpVariants}>
               <SectionHeader
                 title={t('title')}

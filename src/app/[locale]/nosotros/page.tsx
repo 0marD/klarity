@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic'
 import { getTranslations } from 'next-intl/server'
 import { PageLayout } from '@/components/templates/PageLayout'
 import { SectionHeader } from '@/components/molecules/SectionHeader'
+import { Logo } from '@/components/atoms/Logo'
 
 export default async function AboutPage() {
   const t = await getTranslations('about')
@@ -32,6 +33,9 @@ export default async function AboutPage() {
         <div className="max-w-5xl mx-auto">
           {/* Hero */}
           <div className="text-center mb-16">
+            <div className="flex justify-center mb-4">
+              <Logo size="lg" />
+            </div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold-text)] mb-3">
               {t('title')}
             </p>

@@ -4,13 +4,14 @@ import { cn } from '@/lib/utils'
 type LogoProps = {
   className?: string
   href?: string
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
 const sizeMap = {
   sm: 'text-xl',
   md: 'text-2xl',
   lg: 'text-4xl',
+  xl: 'text-6xl',
 }
 
 export function Logo({ className, href = '/', size = 'md' }: LogoProps) {
@@ -23,7 +24,7 @@ export function Logo({ className, href = '/', size = 'md' }: LogoProps) {
       )}
       aria-label="Klarity"
     >
-      Kl
+      Klarity
       <span className="text-[var(--gold)]">.</span>
     </span>
   )

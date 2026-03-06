@@ -13,6 +13,7 @@ import { Button } from '@/components/atoms/Button'
 import { Badge } from '@/components/atoms/Badge'
 import { quoteSchema, type QuoteSchema, type QuoteFormInput } from '@/lib/validations/quote.schema'
 import { fadeUpVariants } from '@/lib/animations'
+import { Logo } from '@/components/atoms/Logo'
 
 const PROJECT_TYPES = ['webapp', 'mobile', 'ecommerce', 'automation', 'api', 'other'] as const
 
@@ -104,6 +105,9 @@ export default function QuotePage() {
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <div className="text-center mb-10">
+            <div className="flex justify-center mb-4">
+              <Logo size="lg" />
+            </div>
             <h1 className="font-display text-4xl font-bold text-[var(--text)] mb-3">
               {t('title')}
             </h1>

@@ -34,6 +34,9 @@ export async function GET(request: NextRequest) {
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`)
     }
+    return NextResponse.redirect(
+      `${origin}/login?error=auth&msg=${encodeURIComponent(error.message)}&flow=pkce`
+    )
   }
 
   // Token hash flow (older Supabase projects / email OTP)
@@ -42,7 +45,10 @@ export async function GET(request: NextRequest) {
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`)
     }
+    return NextResponse.redirect(
+      `${origin}/login?error=auth&msg=${encodeURIComponent(error.message)}&flow=token_hash`
+    )
   }
 
-  return NextResponse.redirect(`${origin}/login?error=auth`)
+  return NextResponse.redirect(`${origin}/login?error=auth&msg=no_code_or_token`)
 }

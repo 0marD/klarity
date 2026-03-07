@@ -12,12 +12,14 @@ import { fadeUpVariants, staggerContainerVariants } from '@/lib/animations'
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle')
+  const [debugMsg, setDebugMsg] = useState('')
   const supabase = createClient()
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     if (params.get('error') === 'auth' || params.get('error') === 'unauthorized') {
       setStatus('error')
+      setDebugMsg(params.get('msg') ?? '')
     }
   }, [])
 
@@ -86,7 +88,7 @@ export default function LoginPage() {
                   placeholder="tu@email.com"
                   required
                   autoComplete="email"
-                  error={status === 'error' ? 'Hubo un error. Intenta de nuevo.' : undefined}
+                  error={status === 'error' ? `Hubo un error. ${debugMsg ? `(${debugMsg})` : 'Intenta de nuevo.'}` : undefined}
                 />
                 <Button
                   type="submit"

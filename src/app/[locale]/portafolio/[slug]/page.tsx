@@ -7,23 +7,22 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { PageLayout } from '@/components/templates/PageLayout'
 import { Badge } from '@/components/atoms/Badge'
 import { Button } from '@/components/atoms/Button'
-import { getProjectBySlug, projects } from '@/content/projects'
-
-export async function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }))
-}
+import { fetchProjectBySlug, localizeProject } from '@/lib/db/projects'
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
-  const { slug, locale } = await params
-  const project = getProjectBySlug(slug)
+  const { slug } = await params
+  const locale = await getLocale()
+  const project = await fetchProjectBySlug(slug)
   const t = await getTranslations('portfolio')
   const prefix = locale === 'en' ? '/en' : ''
 
   if (!project) notFound()
+
+  const { title, description } = localizeProject(project, locale)
 
   return (
     <PageLayout>
@@ -35,22 +34,24 @@ export default async function ProjectDetailPage({ params }: Props) {
             className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text)] mb-8 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] rounded-sm"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden />
-            {t('filterAll')} proyectos
+            {t('backLink')}
           </Link>
 
           {/* Header */}
           <div className="mb-8">
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.tags.map((tag) => (
-                <Badge key={tag} variant="outline">{tag}</Badge>
-              ))}
-            </div>
+            {project.tags && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag) => (
+                  <Badge key={tag} variant="outline">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )}
             <h1 className="font-display text-4xl sm:text-5xl font-bold text-[var(--text)] mb-4">
-              {project.title}
+              {title}
             </h1>
-            <p className="text-lg text-[var(--text-muted)] leading-relaxed">
-              {project.description}
-            </p>
+            <p className="text-lg text-[var(--text-muted)] leading-relaxed">{description}</p>
           </div>
 
           {/* Metrics */}
@@ -67,9 +68,13 @@ export default async function ProjectDetailPage({ params }: Props) {
                   >
                     <span className="text-sm text-[var(--text-muted)]">{m.label}</span>
                     <div className="flex items-center gap-3">
-                      <span className="text-sm line-through text-[var(--text-muted)]">{m.before}</span>
+                      <span className="text-sm line-through text-[var(--text-muted)]">
+                        {m.before}
+                      </span>
                       <ArrowRight className="h-3 w-3 text-[var(--text-muted)]" aria-hidden />
-                      <span className="text-sm font-bold text-[var(--color-success)]">{m.after}</span>
+                      <span className="text-sm font-bold text-[var(--color-success)]">
+                        {m.after}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -78,14 +83,16 @@ export default async function ProjectDetailPage({ params }: Props) {
           )}
 
           {/* Technologies */}
-          {project.technologies && (
+          {project.technologies && project.technologies.length > 0 && (
             <div className="mb-8">
               <h2 className="font-display text-xl font-semibold text-[var(--text)] mb-3">
                 {t('caseStudy.technologies')}
               </h2>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
-                  <Badge key={tech} variant="gold">{tech}</Badge>
+                  <Badge key={tech} variant="gold">
+                    {tech}
+                  </Badge>
                 ))}
               </div>
             </div>

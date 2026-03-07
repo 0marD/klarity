@@ -2,6 +2,19 @@ export type ProjectStatus = 'draft' | 'published'
 export type QuoteStatus = 'new' | 'reviewing' | 'proposal_sent' | 'closed_won' | 'closed_lost'
 export type UserRole = 'admin' | 'editor' | 'viewer'
 
+export type ProjectMetric = {
+  label: string
+  before: string
+  after: string
+}
+
+export type FeatureFlags = {
+  chatbot: boolean
+  email_notifications: boolean
+  crm_integration: boolean
+  whatsapp_button: boolean
+}
+
 export type DbProfile = {
   id: string
   role: UserRole
@@ -19,7 +32,8 @@ export type DbProject = {
   description_en: string | null
   cover_url: string | null
   tags: string[] | null
-  metrics: Record<string, string> | null
+  metrics: ProjectMetric[] | null
+  technologies: string[] | null
   is_featured: boolean
   is_published: boolean
   order_index: number
@@ -34,10 +48,26 @@ export type DbService = {
   title_en: string
   description_es: string | null
   description_en: string | null
+  features_es: string[] | null
+  features_en: string[] | null
   icon: string | null
   base_price: number | null
   is_active: boolean
   order_index: number
+}
+
+export type DbTestimonial = {
+  id: string
+  author: string
+  role: string
+  company: string
+  avatar_url: string | null
+  content_es: string
+  content_en: string | null
+  rating: number
+  is_active: boolean
+  order_index: number
+  created_at: string
 }
 
 export type DbQuote = {
@@ -103,6 +133,12 @@ export type Database = {
         Row: DbService
         Insert: Omit<DbService, 'id'>
         Update: Partial<Omit<DbService, 'id'>>
+        Relationships: []
+      }
+      testimonials: {
+        Row: DbTestimonial
+        Insert: Omit<DbTestimonial, 'id' | 'created_at'>
+        Update: Partial<Omit<DbTestimonial, 'id' | 'created_at'>>
         Relationships: []
       }
       quotes: {

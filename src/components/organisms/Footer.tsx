@@ -83,6 +83,9 @@ export function Footer() {
             <Link href={`${prefix}/cookies`} className="hover:text-[var(--text)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] rounded-sm">
               {t('legal.cookies')}
             </Link>
+            <Link href="/login" className="text-[var(--border)] hover:text-[var(--text-muted)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] rounded-sm">
+              Admin
+            </Link>
           </nav>
         </div>
       </div>

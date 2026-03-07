@@ -3,12 +3,15 @@ import { Footer } from '@/components/organisms/Footer'
 import { WhatsAppButton } from '@/components/atoms/WhatsAppButton'
 import { CookieBanner } from '@/components/organisms/CookieBanner'
 import { PWAInstallPrompt } from '@/components/organisms/PWAInstallPrompt'
+import { getFeatureFlags } from '@/lib/feature-flags'
 
 type PageLayoutProps = {
   children: React.ReactNode
 }
 
-export function PageLayout({ children }: PageLayoutProps) {
+export async function PageLayout({ children }: PageLayoutProps) {
+  const flags = await getFeatureFlags()
+
   return (
     <div className="flex min-h-screen flex-col">
       <a href="#main-content" className="skip-to-content">
@@ -19,7 +22,7 @@ export function PageLayout({ children }: PageLayoutProps) {
         {children}
       </main>
       <Footer />
-      <WhatsAppButton />
+      {flags.whatsapp_button && <WhatsAppButton />}
       <CookieBanner />
       <PWAInstallPrompt />
     </div>

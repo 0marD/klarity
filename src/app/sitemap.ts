@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { projects } from '@/content/projects'
+import { fetchAllProjectSlugs } from '@/lib/db/projects'
 
 const BASE_URL = 'https://klarity.dev'
 
@@ -13,7 +13,7 @@ const staticRoutes = [
   { path: '/contacto', priority: 0.7, changeFrequency: 'monthly' as const },
 ]
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date()
   const entries: MetadataRoute.Sitemap = []
 
@@ -32,16 +32,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   }
 
-  for (const project of projects) {
+  const slugs = await fetchAllProjectSlugs()
+  for (const slug of slugs) {
     entries.push({
-      url: `${BASE_URL}/portafolio/${project.slug}`,
+      url: `${BASE_URL}/portafolio/${slug}`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
       alternates: {
         languages: {
-          es: `${BASE_URL}/portafolio/${project.slug}`,
-          en: `${BASE_URL}/en/portafolio/${project.slug}`,
+          es: `${BASE_URL}/portafolio/${slug}`,
+          en: `${BASE_URL}/en/portafolio/${slug}`,
         },
       },
     })

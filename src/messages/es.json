@@ -21,12 +21,18 @@
     "projects": {
       "title": "Proyectos Destacados",
       "subtitle": "Soluciones que han generado impacto real en negocios como el tuyo",
-      "cta": "Ver todos los proyectos"
+      "cta": "Ver todos los proyectos",
+      "empty": "Próximamente — Nuestros primeros proyectos están en camino."
     },
     "services": {
       "title": "Nuestros Servicios",
       "subtitle": "De la idea al producto — cubrimos todo el ciclo de desarrollo",
-      "cta": "Ver todos los servicios"
+      "cta": "Ver todos los servicios",
+      "empty": "Servicios disponibles próximamente."
+    },
+    "testimonials": {
+      "title": "Lo que dicen nuestros clientes",
+      "subtitle": "Resultados reales de empresas que confiaron en Klarity"
     },
     "value": {
       "title": "Por qué Klarity",
@@ -87,6 +93,8 @@
     "title": "Portafolio",
     "subtitle": "Proyectos que generan impacto real",
     "filterAll": "Todos",
+    "backLink": "Volver al Portafolio",
+    "empty": "No hay proyectos publicados aún.",
     "metrics": {
       "before": "Antes",
       "after": "Después"
@@ -107,6 +115,11 @@
     "hidePrices": "Ocultar precios",
     "from": "Desde",
     "cta": "Solicitar cotización",
+    "empty": "No hay servicios disponibles.",
+    "customCta": {
+      "title": "¿No encuentras lo que buscas?",
+      "subtitle": "Contáctanos y diseñamos una solución a la medida de tus necesidades."
+    },
     "calculator": {
       "title": "Calculadora de Presupuesto",
       "subtitle": "Obtén una estimación aproximada para tu proyecto",
@@ -120,6 +133,8 @@
   "quote": {
     "title": "Solicitar Cotización",
     "subtitle": "Cuéntanos sobre tu proyecto y te prepararemos una propuesta personalizada",
+    "next": "Siguiente",
+    "back": "Atrás",
     "step1": {
       "title": "Información Personal",
       "name": "Nombre completo",
@@ -137,6 +152,7 @@
     "step3": {
       "title": "Detalles Adicionales",
       "description": "Describe tu proyecto",
+      "descriptionPlaceholder": "Cuéntanos más sobre tu proyecto, contexto y objetivos...",
       "submit": "Enviar cotización"
     },
     "success": {
@@ -144,6 +160,7 @@
       "message": "Revisaremos tu solicitud y te contactaremos en menos de 24 horas.",
       "cta": "Volver al inicio"
     },
+    "error": "Hubo un error al enviar tu cotización. Por favor intenta de nuevo.",
     "types": {
       "webapp": "Aplicación Web",
       "mobile": "App Móvil",
@@ -151,6 +168,32 @@
       "automation": "Automatización",
       "api": "API / Integración",
       "other": "Otro"
+    },
+    "modules": {
+      "auth": "Autenticación y usuarios",
+      "admin": "Panel de administración",
+      "payments": "Pasarela de pagos",
+      "email": "Notificaciones email",
+      "analytics": "Reportes y analytics",
+      "api": "API / Integraciones",
+      "mobile": "App móvil",
+      "chat": "Chat / Mensajería",
+      "geo": "Geolocalización",
+      "upload": "Upload de archivos"
+    },
+    "deadlines": {
+      "1-2w": "1-2 semanas",
+      "1m": "1 mes",
+      "2-3m": "2-3 meses",
+      "3-6m": "3-6 meses",
+      "6m+": "Más de 6 meses"
+    },
+    "budgets": {
+      "lt15k": "< $15,000 MXN",
+      "15k-50k": "$15k–$50k MXN",
+      "50k-150k": "$50k–$150k MXN",
+      "gt150k": "> $150k MXN",
+      "tbd": "Por definir"
     }
   },
   "about": {
@@ -223,7 +266,15 @@
     "next": "Siguiente",
     "back": "Atrás",
     "seeAll": "Ver todos",
-    "learnMore": "Saber más"
+    "learnMore": "Saber más",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "create": "Crear",
+    "saving": "Guardando...",
+    "deleting": "Eliminando...",
+    "confirmDelete": "¿Estás seguro de que quieres eliminar este elemento? Esta acción no se puede deshacer."
   },
   "metadata": {
     "title": "Klarity — Desarrollo de Software a Medida",
@@ -246,5 +297,32 @@
     "essential": "Esenciales",
     "analytics": "Analítica",
     "marketing": "Marketing"
+  },
+  "admin": {
+    "settings": {
+      "title": "Configuración",
+      "subtitle": "Gestiona las funcionalidades activas del sitio",
+      "features": {
+        "title": "Funcionalidades",
+        "chatbot": {
+          "label": "Chatbot IA",
+          "description": "Asistente inteligente en el sitio público. Requiere API key de OpenAI."
+        },
+        "email_notifications": {
+          "label": "Notificaciones por Email",
+          "description": "Envío de correos de confirmación a clientes. Requiere cuenta de Resend."
+        },
+        "crm_integration": {
+          "label": "Integración CRM",
+          "description": "Sincronización de leads con HubSpot o Zoho CRM."
+        },
+        "whatsapp_button": {
+          "label": "Botón de WhatsApp",
+          "description": "Botón flotante de WhatsApp en el sitio público."
+        }
+      },
+      "saved": "Configuración guardada",
+      "saveError": "Error al guardar la configuración"
+    }
   }
 }

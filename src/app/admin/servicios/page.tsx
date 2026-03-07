@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function ServiciosAdminPage() {
   const supabase = await createClient()
-  const { data: servicesDb } = await supabase
+  const { data: services } = await supabase
     .from('services')
     .select('*')
     .order('order_index', { ascending: true })
@@ -27,23 +27,46 @@ export default async function ServiciosAdminPage() {
       </div>
 
       <div className="bg-[var(--surface)] border border-[var(--border)] rounded-xl overflow-hidden">
-        {!servicesDb || servicesDb.length === 0 ? (
-          <p className="p-8 text-center text-[var(--text-muted)]">No hay servicios en la DB. Los servicios públicos usan datos estáticos.</p>
+        {!services || services.length === 0 ? (
+          <p className="p-8 text-center text-[var(--text-muted)]">
+            No hay servicios aún.{' '}
+            <Link href="/admin/servicios/nuevo" className="text-[var(--gold-text)] hover:underline">
+              Crear el primero
+            </Link>
+          </p>
         ) : (
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-[var(--border)]">
-                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Título</th>
-                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Estado</th>
-                <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Acciones</th>
+                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  Título
+                </th>
+                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  Precio base
+                </th>
+                <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  Estado
+                </th>
+                <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  Acciones
+                </th>
               </tr>
             </thead>
             <tbody>
-              {(servicesDb as DbService[]).map((s) => (
+              {(services as DbService[]).map((s) => (
                 <tr key={s.id} className="border-b border-[var(--border)] last:border-0">
                   <td className="px-5 py-3">
                     <p className="font-medium text-[var(--text)]">{s.title_es}</p>
                     <p className="text-xs text-[var(--text-muted)]">{s.slug}</p>
+                  </td>
+                  <td className="px-5 py-3 text-[var(--text-muted)]">
+                    {s.base_price
+                      ? new Intl.NumberFormat('es-MX', {
+                          style: 'currency',
+                          currency: 'MXN',
+                          minimumFractionDigits: 0,
+                        }).format(s.base_price)
+                      : '—'}
                   </td>
                   <td className="px-5 py-3">
                     <Badge variant={s.is_active ? 'success' : 'outline'}>

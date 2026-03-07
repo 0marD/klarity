@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { quoteSchema } from '@/lib/validations/quote.schema'
 
-// Rate limiting: simple in-memory store (use Redis in production)
+// In-memory rate limit store — use Redis/Upstash in production for multi-instance deployments
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
 
 function checkRateLimit(ip: string): boolean {
@@ -65,7 +65,15 @@ export async function POST(request: NextRequest) {
   })
 
   if (error) {
-    console.error('Quote insert error:', error)
+    // Structured server-side logging — replace with a proper logger (Sentry, etc.) in production
+    const logEntry = {
+      timestamp: new Date().toISOString(),
+      level: 'error',
+      event: 'quote_insert_failed',
+      message: error.message,
+      code: error.code,
+    }
+    process.stderr.write(JSON.stringify(logEntry) + '\n')
     return NextResponse.json({ error: 'Error al guardar la cotización' }, { status: 500 })
   }
 

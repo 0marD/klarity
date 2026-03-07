@@ -12,6 +12,7 @@ import {
   Menu,
   X,
   LogOut,
+  Star,
 } from 'lucide-react'
 import { Logo } from '@/components/atoms/Logo'
 import { ThemeToggle } from '@/components/atoms/ThemeToggle'
@@ -24,6 +25,7 @@ const navItems = [
   { href: '/admin/cotizaciones', label: 'Cotizaciones', icon: MessageSquare },
   { href: '/admin/proyectos', label: 'Proyectos', icon: FolderKanban },
   { href: '/admin/servicios', label: 'Servicios', icon: Briefcase },
+  { href: '/admin/testimonios', label: 'Testimonios', icon: Star },
   { href: '/admin/settings', label: 'Configuración', icon: Settings },
 ]
 
@@ -37,6 +39,9 @@ export function AdminSidebar() {
     await supabase.auth.signOut()
     router.push('/login')
   }
+
+  const isActive = (href: string) =>
+    href === '/admin' ? pathname === '/admin' : pathname.startsWith(href)
 
   const sidebarContent = (
     <div className="flex flex-col h-full">
@@ -55,7 +60,7 @@ export function AdminSidebar() {
             className={cn(
               'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]',
-              pathname === href
+              isActive(href)
                 ? 'bg-[var(--gold)]/10 text-[var(--gold-text)] font-semibold'
                 : 'text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--text)]/5'
             )}
@@ -93,6 +98,7 @@ export function AdminSidebar() {
           onClick={() => setMobileOpen((v) => !v)}
           className="h-9 w-9 flex items-center justify-center rounded-md text-[var(--text)] hover:bg-[var(--text)]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
           aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
         </button>
@@ -113,6 +119,7 @@ export function AdminSidebar() {
           'md:hidden fixed left-0 top-14 bottom-0 w-64 bg-[var(--surface)] border-r border-[var(--border)] z-40 transition-transform duration-300',
           mobileOpen ? 'translate-x-0' : '-translate-x-full'
         )}
+        aria-hidden={!mobileOpen}
       >
         {sidebarContent}
       </aside>

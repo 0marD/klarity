@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -9,25 +9,40 @@ import { ProjectCard } from '@/components/molecules/ProjectCard'
 import { SectionHeader } from '@/components/molecules/SectionHeader'
 import { Button } from '@/components/atoms/Button'
 import { staggerContainerVariants, fadeUpVariants } from '@/lib/animations'
-import type { Project } from '@/types'
+import type { DbProject } from '@/types'
 
 type ProjectCarouselProps = {
-  projects: Project[]
+  projects: DbProject[]
+  locale: string
 }
 
-export function ProjectCarousel({ projects }: ProjectCarouselProps) {
+export function ProjectCarousel({ projects, locale }: ProjectCarouselProps) {
   const t = useTranslations('home.projects')
-  const locale = useLocale()
   const prefix = locale === 'en' ? '/en' : ''
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const scroll = (direction: 'left' | 'right') => {
     if (!scrollRef.current) return
-    const amount = 280
     scrollRef.current.scrollBy({
-      left: direction === 'left' ? -amount : amount,
+      left: direction === 'left' ? -280 : 280,
       behavior: 'smooth',
     })
+  }
+
+  if (projects.length === 0) {
+    return (
+      <section className="py-20 px-4" aria-labelledby="projects-heading">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            id="projects-heading"
+            title={t('title')}
+            subtitle={t('subtitle')}
+            align="center"
+          />
+          <p className="text-center text-[var(--text-muted)] mt-8">{t('empty')}</p>
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -64,7 +79,6 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
             </div>
           </motion.div>
 
-          {/* Carousel */}
           <motion.div variants={fadeUpVariants}>
             <div
               ref={scrollRef}
@@ -79,13 +93,12 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                   className="shrink-0 w-[280px] sm:w-[300px] snap-start"
                   role="listitem"
                 >
-                  <ProjectCard project={project} floating={i % 2 === 0} />
+                  <ProjectCard project={project} locale={locale} floating={i % 2 === 0} />
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* CTA */}
           <motion.div variants={fadeUpVariants} className="mt-8 flex justify-center">
             <Button variant="outline" asChild>
               <Link href={`${prefix}/portafolio`}>{t('cta')}</Link>

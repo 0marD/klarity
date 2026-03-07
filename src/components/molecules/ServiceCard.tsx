@@ -1,9 +1,18 @@
 import Link from 'next/link'
-import { Monitor, Smartphone, Zap, ShoppingCart, GitMerge, Lightbulb, LucideIcon } from 'lucide-react'
+import {
+  Monitor,
+  Smartphone,
+  Zap,
+  ShoppingCart,
+  GitMerge,
+  Lightbulb,
+  type LucideIcon,
+} from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { formatPrice } from '@/lib/utils'
-import type { Service } from '@/types'
+import { localizeService } from '@/lib/db/localize'
+import type { DbService } from '@/types'
 
 const ICONS: Record<string, LucideIcon> = {
   Monitor,
@@ -15,14 +24,15 @@ const ICONS: Record<string, LucideIcon> = {
 }
 
 type ServiceCardProps = {
-  service: Service
+  service: DbService
+  locale: string
   showPrice?: boolean
   href?: string
-  locale?: string
 }
 
-export function ServiceCard({ service, showPrice = false, href, locale = 'es' }: ServiceCardProps) {
-  const Icon = ICONS[service.icon] || Monitor
+export function ServiceCard({ service, locale, showPrice = false, href }: ServiceCardProps) {
+  const { title, description, features } = localizeService(service, locale)
+  const Icon = ICONS[service.icon ?? 'Monitor'] ?? Monitor
 
   const content = (
     <div
@@ -40,24 +50,20 @@ export function ServiceCard({ service, showPrice = false, href, locale = 'es' }:
       </div>
 
       {/* Content */}
-      <h3 className="font-display text-xl font-semibold text-[var(--text)] mb-2">
-        {service.title}
-      </h3>
-      <p className="flex-1 text-sm text-[var(--text-muted)] leading-relaxed mb-4">
-        {service.description}
-      </p>
+      <h3 className="font-display text-xl font-semibold text-[var(--text)] mb-2">{title}</h3>
+      <p className="flex-1 text-sm text-[var(--text-muted)] leading-relaxed mb-4">{description}</p>
 
       {/* Price */}
-      {showPrice && service.basePrice && (
+      {showPrice && service.base_price && (
         <p className="text-sm font-medium text-[var(--gold-text)] mb-4">
-          Desde {formatPrice(service.basePrice, locale)}
+          Desde {formatPrice(service.base_price, locale)}
         </p>
       )}
 
       {/* Features */}
-      {service.features && (
+      {features.length > 0 && (
         <ul className="space-y-1.5" role="list">
-          {service.features.slice(0, 3).map((feature) => (
+          {features.slice(0, 3).map((feature) => (
             <li key={feature} className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
               <span className="h-1 w-1 rounded-full bg-[var(--gold)] shrink-0" aria-hidden />
               {feature}
@@ -81,7 +87,7 @@ export function ServiceCard({ service, showPrice = false, href, locale = 'es' }:
       <Link
         href={href}
         className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] rounded-xl"
-        aria-label={`Servicio: ${service.title}`}
+        aria-label={`Servicio: ${title}`}
       >
         {content}
       </Link>

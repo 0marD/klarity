@@ -1,19 +1,38 @@
 'use client'
 
 import Link from 'next/link'
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { ServiceCard } from '@/components/molecules/ServiceCard'
 import { SectionHeader } from '@/components/molecules/SectionHeader'
 import { Button } from '@/components/atoms/Button'
 import { staggerContainerVariants, fadeUpVariants } from '@/lib/animations'
-import { getFeaturedServices } from '@/content/services'
+import type { DbService } from '@/types'
 
-export function ServicesSection() {
+type ServicesSectionProps = {
+  services: DbService[]
+  locale: string
+}
+
+export function ServicesSection({ services, locale }: ServicesSectionProps) {
   const t = useTranslations('home.services')
-  const locale = useLocale()
   const prefix = locale === 'en' ? '/en' : ''
-  const featuredServices = getFeaturedServices()
+
+  if (services.length === 0) {
+    return (
+      <section className="py-20 px-4 bg-[var(--surface)]" aria-labelledby="services-heading">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            id="services-heading"
+            title={t('title')}
+            subtitle={t('subtitle')}
+            align="center"
+          />
+          <p className="text-center text-[var(--text-muted)] mt-8">{t('empty')}</p>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="py-20 px-4 bg-[var(--surface)]" aria-labelledby="services-heading">
@@ -34,12 +53,12 @@ export function ServicesSection() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredServices.map((service) => (
+            {services.map((service) => (
               <motion.div key={service.id} variants={fadeUpVariants} className="h-full">
                 <ServiceCard
                   service={service}
-                  href={`${prefix}/servicios#${service.slug}`}
                   locale={locale}
+                  href={`${prefix}/servicios#${service.slug}`}
                 />
               </motion.div>
             ))}

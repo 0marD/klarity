@@ -35,6 +35,7 @@ export default function LoginPage() {
     })
 
     if (error) {
+      setDebugMsg(error.message)
       setStatus('error')
     } else {
       setStatus('sent')
